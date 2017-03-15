@@ -1,17 +1,292 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="center">
-            <img src="/ui/madi.png" class="img-medium"/>
-        </div>
-        <br>
-        <div class="center text-big bold">
-            This is my first app by senthil.
-        </div>
-        <script type="text/javascript" src="/ui/main.js">
-        </script>
-    </body>
+<title>Resturant</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="/node_modules/jqwidgets-framework/jqwidgets/styles/jqx.base.css" type="text/css" />
+<script type="text/javascript" src="/scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="/jqwidgets/jqxdata.js"></script> 
+    <script type="text/javascript" src="/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="/jqwidgets/jqxdatatable.js"></script>
+    <script type="text/javascript" src="/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="/scripts/demos.js"></script>
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+</style>
+<script type="text/javascript">
+        $(document).ready(function () {
+            // prepare the data
+            var data = [
+                {
+                    laptops:
+                    [
+                        { img: '../../images/l-13.jpg', ram: '8GB DD3', cpu: 'Intel Core i7-3720QM', price: 2999, display: 15.4, hdd: '512GB SSD', model: 'Apple MacBook Pro' },
+                        { img: '../../images/l-14.jpg', ram: '8GB DD3', cpu: 'Intel Core i7-3667U', price: 1299, display: 13.3, hdd: '256GB SSD', model: 'Apple MacBook Air' },
+                        { img: '../../images/l-15.jpg', ram: '8GB DD3', cpu: 'Intel Core i7-3632QM', price: 2199, display: 15.4, hdd: '256GB SSD', model: 'Asus ZenBook UX51VZ' }
+                    ]
+                },
+                {
+                    laptops:
+                    [
+                        { img: '../../images/l-16.jpg', ram: '4GB DD3', cpu: 'Intel Core i5-3317U', price: 1899, display: 13.3, hdd: '128GB SSD', model: 'ASUS TAICHI31-CX009H' },
+                        { img: '../../images/l-17.jpg', ram: '4GB DD3', cpu: 'Intel Core i7-3517U', price: 1799, display: 13.3, hdd: '628GB', model: 'Asus TX300CA-C4024H' },
+                        { img: '../../images/l-18.gif', ram: '16GB DD3', cpu: 'Intel Core i7-3820QM', price: 2499, display: 15.6, hdd: '1TB', model: 'Lenovo ThinkPad T530' }
+                    ]
+                },
+                {
+                    laptops:
+                    [
+                        { img: '../../images/l-19.jpg', ram: '8GB DD3', cpu: 'Intel Core i5-3210M', price: 1499, display: 15.6, hdd: '750GB', model: 'Samsung Series 7 Chronos' },
+                        { img: '../../images/l-20.jpg', ram: '8GB DD3', cpu: 'Intel Core i7-3720QM', price: 1499, display: 17.3, hdd: '256GB SSD', model: 'HP EliteBook 8770w' },
+                        { img: '../../images/l-21.jpg', ram: '8GB DD3', cpu: 'Intel Core i7-3517U', price: 1499, display: 14.0, hdd: '512GB', model: 'Dell XPS 14' }
+                    ]
+                },
+                {
+                    laptops:
+                    [
+                        { img: '../../images/l-22.jpg', ram: '32GB DD3', cpu: 'Intel Core i7-4800MQ', price: 3499, display: 17.3, hdd: '750GB', model: 'Dell Alienware 17' },
+                        { img: '../../images/l-23.jpg', ram: '8GB DD3', cpu: 'Intel Core i7-3537U', price: 1699, display: 15.6, hdd: '1TB', model: 'Acer Aspire R7-571G' },
+                        { img: '../../images/l-24.jpg', ram: '8GB DD3', cpu: 'Intel Core i7-4500U', price: 1599, display: 15.6, hdd: '256GB SSD', model: 'Acer Aspire V5-573G' }
+                    ]
+                },
+                {
+                    laptops:
+                    [
+                        { img: '../../images/l-25.jpg', ram: '32GB DD3', cpu: 'Intel Core i7-4700MQ', price: 2199, display: 17.3, hdd: '1TB', model: 'Toshiba Qosmio X70-A-114' },
+                        { img: '../../images/l-26.gif', ram: '4GB DD3', cpu: 'Intel Core i7-3667U', price: 2699, display: 14.0, hdd: '256GB SSD', model: 'Lenovo Thinkpad X1 Carbon' },
+                        { img: '../../images/l-27.jpg', ram: '8GB DD3', cpu: 'Intel Core i5-3317U ', price: 1699, display: 12.5, hdd: '128GB SSD', model: 'Dell XPS Duo 12' }
+                    ]
+                },
+                {
+                    laptops:
+                    [
+                        { img: '../../images/l-28.png', ram: '8GB DD3', cpu: 'Intel Core i7-3537U', price: 1799, display: 12.5, hdd: '256GB SSD', model: 'Lenovo ThinkPad Twist S230u' },
+                        { img: '../../images/l-29.jpg', ram: '4GB DD3', cpu: 'Intel Core i5-3317U ', price: 1299, display: 11.6, hdd: '128GB SSD', model: 'Sony Vaio Duo' },
+                        { img: '../../images/l-30.jpg', ram: '4GB DD3', cpu: 'Intel Core i5-3230M', price: 999, display: 15.5, hdd: '256GB SSD', model: 'Sony VAIO' }
+                    ]
+                }
+            ];
+            var source =
+            {
+                localData: data,
+                dataType: "array"
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            var itemsInCart = 0;
+            $("#dataTable").jqxDataTable(
+            {
+                width: 640,
+                source: dataAdapter,
+                sortable: true,
+                pageable: true,
+                pageSize: 2,
+                pagerButtonsCount: 5,
+                enableHover: false,
+                selectionMode: 'none',
+                rendered: function () {
+                    $(".buy").jqxButton();
+                    $(".buy").click(function () {
+                        itemsInCart++;
+                        $(".cart-top p").html(itemsInCart + " products");
+                    });
+                },
+                columns: [
+                      {
+                          text: 'Products', align: 'left', dataField: 'model',
+                          // row - row's index.
+                          // column - column's data field.
+                          // value - cell's value.
+                          // rowData - rendered row's object.
+                          cellsRenderer: function (row, column, value, rowData) {
+                              var laptops = rowData.laptops;
+                              var container = "<div>";
+                              for (var i = 0; i < laptops.length; i++) {
+                                  var laptop = laptops[i];
+                                  var item = "<div style='float: left; width: 210px; overflow: hidden; white-space: nowrap; height: 265px;'>";
+                                  var image = "<div style='margin: 5px; margin-bottom: 3px;'>";
+                                  var imgurl = laptop.img;
+                                  var img = '<img width=160 height=120 style="display: block;" src="' + imgurl + '"/>';
+                                  image += img;
+                                  image += "</div>";
+                                  var info = "<div style='margin: 5px; margin-left: 10px; margin-bottom: 3px;'>";
+                                  info += "<div><i>" + laptop.model + "</i></div>";
+                                  info += "<div>Price: $" + laptop.price + "</div>";
+                                  info += "<div>RAM: " + laptop.ram + "</div>";
+                                  info += "<div>HDD: " + laptop.hdd + "</div>";
+                                  info += "<div>CPU: " + laptop.cpu + "</div>";
+                                  info += "<div>Display: " + laptop.display + "</div>";
+                                  info += "</div>";
+                                  var buy = "<button class='buy' style='margin: 5px; width: 80px; left: -40px; position: relative; margin-left: 50%; margin-bottom: 3px;'>Buy</button>";
+                                  item += image;
+                                  item += info;
+                                  item += buy;
+                                  item += "</div>";
+                                  container += item;
+                              }
+                              container += "</div>";
+                              return container;
+                          }
+                      }
+                ]
+            });
+        });
+    </script>
+    <style>
+        h4 {
+            font-size: 14px;
+            margin: 18px 0 15px 15px;
+        }
+        .tag-title-info {
+            background: transparent;
+            width: 1px;
+            height: 0px;
+            border-color: #4272b8 transparent #4272b8 #4272b8 !important;
+            border-width: 26px 26px;
+            border-style: solid;
+            z-index: 1000;
+            top: 0px;
+            position: absolute;
+            left: 598px;
+        }
+        .tag-title {
+            font-size: 16px;
+            color: #fff;
+            position: absolute;
+            z-index: 100;
+            left: 0;
+            line-height: 100%;
+            background: #4272b8 !important;
+            height: 52px;
+            padding: 0px;
+            margin: 0px;
+            top: 0px;
+            width: 500px;
+            vertical-align: middle;
+        }
+        .cart-top {
+            font-family: Arial, Helvetica, sans-serif;
+            height: 35px;
+            position: absolute;
+            left: 500px;
+            top: 0;
+            color: #fff;
+            padding: 16px 14px 1px 14px;
+            font-size: 11px;
+            font-weight: 400;
+            background: #4272b8 !important;
+            z-index: 199;
+        }
+            .cart-top p {
+                font-weight: bold;
+                font-size: 11px;
+                background: url(../../images/cart-icon.png) no-repeat right center;
+                min-height: 16px;
+                text-align: left;
+                padding: 0 24px 0 0;
+                margin-top: 2px;
+                float: left;
+                font-size: 11px;
+                color: #fff;
+                text-decoration: none;
+            }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar (hidden by default) -->
+<nav class="w3-sidebar w3-bar-block w3-card-2 w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()"
+  class="w3-bar-item w3-button w3-closenav">Close Menu</a>
+  <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button">Food</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
+</nav>
+
+<!-- Top menu -->
+<div class="w3-top">
+  <div class="w3-white w3-xlarge w3-padding-xlarge" style="max-width:1200px;margin:auto">
+    <div class="w3-left w3-opennav w3-hover-text-grey" onclick="w3_open()">☰</div>
+    <div class="w3-right">Mail</div>
+    <div class="w3-center">My Food</div>
+  </div>
+</div>
+  
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+<div style="margin-top: 60px;" id="dataTable"></div>
+  
+  <hr id="about">
+
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32 w3-center">  
+    <h3>About Me, The Food Man</h3><br>
+    <img src="https://www.w3schools.com/w3images/chef.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    <div class="w3-padding-32">
+      <h4><b>I am Who I Am!</b></h4>
+      <h6><i>With Passion For Real, Good Food</i></h6>
+      <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+    </div>
+  </div>
+  <hr>
+  
+  <!-- Footer -->
+  <footer class="w3-row-padding w3-padding-32">
+    <div class="w3-third">
+      <h3>FOOTER</h3>
+      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+      <p>Powered by <a href="#">Senthil</a></p>
+    </div>
+  
+    <div class="w3-third">
+      <h3>BLOG POSTS</h3>
+      <ul class="w3-ul w3-hoverable">
+        <li class="w3-padding-16">
+          <img src="https://www.w3schools.com/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Lorem</span><br>
+          <span>Sed mattis nunc</span>
+        </li>
+        <li class="w3-padding-16">
+          <img src="https://www.w3schools.com/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Ipsum</span><br>
+          <span>Praes tinci sed</span>
+        </li> 
+      </ul>
+    </div>
+
+    <div class="w3-third w3-serif">
+      <h3>POPULAR TAGS</h3>
+      <p>
+        <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dinner</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Salmon</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">France</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Drinks</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Flavors</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cuisine</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chicken</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dressing</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fried</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fish</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Duck</span>
+      </p>
+    </div>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
 </html>
